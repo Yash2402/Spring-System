@@ -9,7 +9,7 @@ I have made the simple cloth simulation using just points and springs in python 
  
 2. In Terminal, run
 ```bash
-  pip3 install pygame
+  pip3 install requirement.txt
 ```
 3. Clone the repository:
 ```bash
