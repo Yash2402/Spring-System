@@ -6,12 +6,15 @@ I have made the simple cloth simulation using just points and springs in python 
 
 ### For Mac
 1. Install Latest Python --> https://www.python.org
- 
-2. In Terminal, run
+
+2. Clone the repository:
 ```bash
-  pip3 install requirement.txt
+  git clone https://github.com/Yash2402/Spring-System.git
 ```
-3. Clone the repository:
+3. In Terminal, run
 ```bash
-  
+  cd Spring-System
+  pip3 install requirements.txt
+  python3 main.py
 ```
+
