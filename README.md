@@ -14,7 +14,7 @@ I have made the simple cloth simulation using just points and springs in python 
 3. In Terminal, run
 ```bash
   cd Spring-System
-  pip3 install requirements.txt
+  pip3 install -r requirements.txt
   python3 main.py
 ```
 
