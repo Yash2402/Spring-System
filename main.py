@@ -1,13 +1,14 @@
 import pygame
-from spring import Point, Spring
-from vector2d import Vector2D
+from lib.spring import Point, Spring
+from lib.vector2d import Vector2D
 import numpy as np
+
 pygame.init()
 screen = pygame.display.set_mode((0, 0), pygame.RESIZABLE)
 w = 20
 
-n = 2500
-nprow = 60
+n = 1000
+nprow = 50
 rows = int(n/nprow)
 x = 100
 y = 50
@@ -17,34 +18,34 @@ for i in range(nprow):
     for j in range(rows):
         points[i][j] = Point(x+i*w, y+j*w, (i, j))
 
-# for c in range(nprow):
-#     points[c][0].lock()
-#     points[c][rows-1].lock()
-# for a in range(rows):
-#     points[0][a].lock()
-#     points[nprow-1][a].lock()
+for c in range(nprow):
+    points[c][0].lock()
+    points[c][rows-1].lock()
+for a in range(rows):
+    points[0][a].lock()
+    points[nprow-1][a].lock()
 
-points[0][0].lock()
-points[int(nprow/4)-1][0].lock()
-points[int(3*nprow/4)-1][0].lock()
-points[int(2*nprow/4)-1][0].lock()
-points[nprow-1][0].lock()
+# points[0][0].lock()
+# points[int(nprow/4)-1][0].lock()
+# points[int(3*nprow/4)-1][0].lock()
+# points[int(2*nprow/4)-1][0].lock()
+# points[nprow-1][0].lock()
 
-points[0][rows-1].lock()
-points[int(nprow/4)-1][rows-1].lock()
-points[int(3*nprow/4)-1][rows-1].lock()
-points[int(2*nprow/4)-1][rows-1].lock()
-points[nprow-1][rows-1].lock()
+# points[0][rows-1].lock()
+# points[int(nprow/4)-1][rows-1].lock()
+# points[int(3*nprow/4)-1][rows-1].lock()
+# points[int(2*nprow/4)-1][rows-1].lock()
+# points[nprow-1][rows-1].lock()
 
-points[0][int((rows-1)/4)].lock()
-points[0][int(2*(rows-1)/4)].lock()
-points[0][int(3*(rows-1)/4)].lock()
-points[0][int((rows-1))].lock()
+# points[0][int((rows-1)/4)].lock()
+# points[0][int(2*(rows-1)/4)].lock()
+# points[0][int(3*(rows-1)/4)].lock()
+# points[0][int((rows-1))].lock()
 
-points[nprow-1][int((rows-1)/4)].lock()
-points[nprow-1][int(3*(rows-1)/4)].lock()
-points[nprow-1][int(2*(rows-1)/4)].lock()
-points[nprow-1][int((rows-1))].lock()
+# points[nprow-1][int((rows-1)/4)].lock()
+# points[nprow-1][int(3*(rows-1)/4)].lock()
+# points[nprow-1][int(2*(rows-1)/4)].lock()
+# points[nprow-1][int((rows-1))].lock()
 
 springs = []
 
@@ -61,9 +62,11 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+            
     for s in springs:
         s.update()
         s.show(screen)
+
     for pi in points:
         for pj in pi:
             pj.show(screen)

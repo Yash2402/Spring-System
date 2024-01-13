@@ -1,4 +1,4 @@
-from vector2d import Vector2D
+from lib.vector2d import Vector2D
 import pygame
 dt = 0.001
 class Point():
