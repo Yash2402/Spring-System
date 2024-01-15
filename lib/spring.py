@@ -15,8 +15,8 @@ class Point():
     def show(self, screen):
         if self.locked:
             pygame.draw.circle(screen, (255,0,0), self.pos.coordinates, 1)
-        if not self.locked:
-            pygame.draw.circle(screen, (255,255,255), self.pos.coordinates, 1)
+        # if not self.locked:
+        #     pygame.draw.circle(screen, (255,255,255), self.pos.coordinates, 1)
     def applyforce(self, f):
         if not self.locked:
             self.acc = f.mult(1/self.mass)
